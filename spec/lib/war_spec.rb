@@ -18,18 +18,18 @@ RSpec.describe War do
     expect { war.welcome }.to output("GAME START!\n").to_stdout
   end
 
-  # it "should ask if you would like to play the computer" do
-  #   expect { war.play_computer }.to output("Play against the computer? (Y/N) ").to_stdout
-  # end
-  #
-  # it "should ask a players name" do
-  #   expect { war.ask_name(1) }.to output("What is Player1's name? ").to_stdout
-  # end
-  #
-  # it "should have 2 players" do
-  #   war.begin_game
-  #   expect(war.players.count).to eq(2)
-  # end
+  it "should ask if you would like to play the computer" do
+    expect { war.play_computer }.to output("Play against the computer? (Y/N) ").to_stdout
+  end
+
+  it "should ask a players name" do
+    expect { war.ask_name(1) }.to output("What is Player1's name? ").to_stdout
+  end
+
+  it "should have 2 players" do
+    war.begin_game
+    expect(war.players.count).to eq(2)
+  end
 
   it "should initialize a new Round and place it in a rounds array" do
     war.players = {player1: {"name": "yo"}, player2: {"name": "lo"}}
