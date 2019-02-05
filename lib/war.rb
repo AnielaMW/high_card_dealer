@@ -1,7 +1,7 @@
 require_relative "round"
 
 class War
-  attr_reader :players
+  attr_accessor :players, :rounds
 
   def initialize
     @players = {}
@@ -43,10 +43,10 @@ class War
   def create_round
     @rounds << Round.new(@players)
     @rounds[-1].start_round
-    create_round if play_round == "y"
+    create_round if play_another_round == "y"
   end
 
-  def play_round
+  def play_another_round
     print "Play another round? (Y/N) "
     answer = gets.chomp.downcase
     ["y", "n"].include?(answer) ? answer : play_round ;

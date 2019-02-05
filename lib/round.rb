@@ -15,7 +15,7 @@ class Round
     welcome
     create_hand
     draw_cards
-    outcome
+    puts outcome
   end
 
   def welcome
@@ -34,7 +34,7 @@ class Round
     @winner = @hands.max{ | a, b | a[1][:hand].total_hand <=> b[1][:hand].total_hand }
     @loser = @hands.min{ | a, b | a[1][:hand].total_hand <=> b[1][:hand].total_hand }
 
-    puts "The winning hand is #{show_hand(@winner)} total #{@winner[1][:hand].total_hand} which belongs to #{@winner[1][:name]}.\n Against #{show_hand(@loser)} total #{@loser[1][:hand].total_hand} which belongs to #{@loser[1][:name]}."
+    "The winning hand is #{show_hand(@winner)} total #{@winner[1][:hand].total_hand} which belongs to #{@winner[1][:name]}.\n Against #{show_hand(@loser)} total #{@loser[1][:hand].total_hand} which belongs to #{@loser[1][:name]}."
   end
 
   def show_hand(hand)
